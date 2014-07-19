@@ -9,25 +9,67 @@
 
     <!-- As the main content view, the view below consumes the entire
          space available using match_parent in both dimensions. -->
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView"
+            android:id="@+id/logo"
             android:layout_gravity="center_horizontal|top"
-            android:src="@drawable/logo" />
+            android:src="@drawable/logo"
+            android:orientation="horizontal" />
 
-        <SearchView
-            android:layout_width="wrap_content"
+        <Button
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:id="@+id/searchView"
-            android:layout_gravity="center_horizontal|bottom" />
+            android:text="Select Course"
+            android:id="@+id/select"
+            android:layout_gravity="center"
+            android:layout_below="@+id/logo"
+            android:contentDescription="Select Course"
+            android:layout_marginTop="50dp" />
 
-    </FrameLayout>
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Leaderboard"
+            android:id="@+id/Leaderboard"
+            android:layout_below="@+id/select"
+            android:contentDescription="Leaderboard"
+            android:layout_marginTop="25dp" />
+
+        <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:gravity="center_horizontal|bottom"
+        android:orientation="vertical">
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="About"
+                android:id="@+id/about"
+                android:contentDescription="About"
+                android:layout_marginBottom="5dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="DGolf v1.0"
+                android:id="@+id/version"
+                android:layout_below="@+id/about"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:singleLine="true" />
+        </LinearLayout>
+    </LinearLayout>
+
+
 
     <!-- android:layout_gravity="start" tells DrawerLayout to treat
          this as a sliding drawer on the left side for left-to-right
