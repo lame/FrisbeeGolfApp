@@ -5,9 +5,8 @@ package edu.fsu.cs.BadAssTeam.SpecialK.frisbeegolf;
  */
 public class fbGolf {
 
-//    protected int
-    
-
+    protected int parArray[];
+    protected int playerArray[];
 
 
     protected int getHoles(int courseNumber){
@@ -23,7 +22,7 @@ public class fbGolf {
     }
 
     protected int getPar(int courseNumber, int holeNum) {
-        int parNumber = 0;
+        int parNumber;
 
         switch (courseNumber) {
             case 1: {
@@ -38,7 +37,15 @@ public class fbGolf {
                 else
                     parNumber = 3;
             }
+            default:
+                parNumber=0;
         }
         return parNumber;
+    }
+    protected String getPlayers(){
+        String player = "player1";
+
+
+        return player;
     }
 }
