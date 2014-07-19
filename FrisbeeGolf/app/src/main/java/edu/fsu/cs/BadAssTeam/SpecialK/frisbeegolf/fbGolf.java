@@ -15,8 +15,34 @@ public class fbGolf {
 //    @Override
 //    protected void onCreate()
 
+    public fbGolf(int courseNum){
+        int holeCount = getHoles(courseNum);
+        int playerCount = getPlayerCount();
+
+        parArray = setParArray(courseNum);
+        playerArray = setPlayerArray(holeCount, playerCount);
+
+    }
+
+    public int[][] setPlayerArray(int holeCount, int playerCount){
+        for(int i=0; i<holeCount; ++i){
+            for(int j=0; j<playerCount; ++j){
+                playerArray[i][j] = 0;
+            }
+        }
+        return playerArray;
+    }
+
     public void setTurn(int score, int loc, int playerNum){
         playerArray[playerNum][loc]=score;
+    }
+
+    public int[] setParArray(int courseNumber){
+        int holeCount = getHoles(courseNumber);
+        for(int i=0; i<holeCount; ++i){
+            parArray[i] = getPar(courseNumber, i);
+        }
+        return parArray;
     }
 
     public int getHoles(int courseNumber){
