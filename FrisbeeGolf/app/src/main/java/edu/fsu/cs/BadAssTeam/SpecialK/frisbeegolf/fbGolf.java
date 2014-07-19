@@ -6,22 +6,32 @@ package edu.fsu.cs.BadAssTeam.SpecialK.frisbeegolf;
 public class fbGolf {
 
     protected int parArray[];
-    protected int playerArray[];
+    protected int [][] playerArray;
 
+    protected int MAX_PLAYERS = 4;
+    protected int MAX_HOLES = 24;
+    protected int AVE_PAR = 3;
 
-    protected int getHoles(int courseNumber){
+//    @Override
+//    protected void onCreate()
+
+    public void setTurn(int score, int loc, int playerNum){
+        playerArray[playerNum][loc]=score;
+    }
+
+    public int getHoles(int courseNumber){
         int holes;
         if(courseNumber == 1) //Tom Brown Course
             holes = 18;
         if(courseNumber == 2) //Jack McLean Course
             holes = 24;
         else
-            holes = 0;
+            holes = MAX_HOLES;
 
         return holes;
     }
 
-    protected int getPar(int courseNumber, int holeNum) {
+    public int getPar(int courseNumber, int holeNum) {
         int parNumber;
 
         switch (courseNumber) {
@@ -38,14 +48,15 @@ public class fbGolf {
                     parNumber = 3;
             }
             default:
-                parNumber=0;
+                parNumber=AVE_PAR;
         }
         return parNumber;
     }
-    protected String getPlayers(){
-        String player = "player1";
 
+    public int getPlayerCount(){
+        int playerCount;
+        playerCount = MAX_PLAYERS;
 
-        return player;
+        return playerCount;
     }
 }
