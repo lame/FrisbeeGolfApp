@@ -38,7 +38,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="Leaderboard"
-            android:id="@+id/Leaderboard"
+            android:id="@+id/leader"
             android:layout_below="@+id/select"
             android:contentDescription="Leaderboard"
             android:layout_marginTop="25dp" />
@@ -62,7 +62,7 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="DGolf v1.0"
                 android:id="@+id/version"
-                android:layout_below="@+id/about"
+                android:layout_below="@+id/start"
                 android:gravity="center_horizontal"
                 android:layout_marginBottom="10dp"
                 android:singleLine="true" />

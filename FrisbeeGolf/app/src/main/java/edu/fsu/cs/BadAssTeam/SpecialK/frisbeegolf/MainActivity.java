@@ -45,6 +45,27 @@ public class MainActivity extends Activity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
+        ((Button) findViewById(R.id.select)).setOnClickListener(new OnClickListener() {
+            public void onClick(View V) {
+                Intent intent = new Intent(MainActivity.this, Setup.class);
+                startActivityForResult(intent, 0);
+            }
+        });
+
+        ((Button) findViewById(R.id.leader)).setOnClickListener(new OnClickListener() {
+            public void onClick(View V) {
+                Intent intent = new Intent(MainActivity.this, Setup.class);
+                startActivityForResult(intent, 0);
+            }
+        });
+
+        ((Button) findViewById(R.id.about)).setOnClickListener(new OnClickListener() {
+            public void onClick(View V) {
+                Intent intent = new Intent(MainActivity.this, Setup.class);
+                startActivityForResult(intent, 0);
+            }
+        });
     }
 
     @Override
@@ -142,5 +163,4 @@ public class MainActivity extends Activity
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
     }
-
 }
