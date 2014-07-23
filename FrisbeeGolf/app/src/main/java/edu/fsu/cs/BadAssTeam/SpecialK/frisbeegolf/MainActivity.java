@@ -13,7 +13,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 
 public class MainActivity extends Activity
@@ -34,6 +36,9 @@ public class MainActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // populate menu listView
+        generateMenuList();
+
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
@@ -42,7 +47,7 @@ public class MainActivity extends Activity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
-
+        /*
         ((Button) findViewById(R.id.select)).setOnClickListener(new OnClickListener() {
             public void onClick(View V) {
                 Intent intent = new Intent(MainActivity.this, Setup.class);
@@ -62,7 +67,7 @@ public class MainActivity extends Activity
                 Intent intent = new Intent(MainActivity.this, Setup.class);
                 startActivityForResult(intent, 0);
             }
-        });
+        });*/
     }
 
     @Override
@@ -159,5 +164,17 @@ public class MainActivity extends Activity
             ((MainActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
+    }
+
+    private void generateMenuList() {
+        // content of the Menu ListView
+        String[] menu_items = {"Select Course", "Leaderboard", "About"};
+
+        // Adapter
+        ArrayAdapter<String> items = new ArrayAdapter<String>(this, R.layout.menulist, menu_items);
+
+        // Configuring the list view
+        ListView menu_ListView = (ListView) findViewById(R.id.menuListView);
+        menu_ListView.setAdapter(items);
     }
 }
