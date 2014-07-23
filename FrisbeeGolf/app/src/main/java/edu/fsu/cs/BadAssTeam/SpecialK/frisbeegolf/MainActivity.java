@@ -13,9 +13,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.List;
 
 
 public class MainActivity extends Activity
@@ -38,6 +43,7 @@ public class MainActivity extends Activity
 
         // populate menu listView
         generateMenuList();
+        clickMenuList();
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -176,5 +182,17 @@ public class MainActivity extends Activity
         // Configuring the list view
         ListView menu_ListView = (ListView) findViewById(R.id.menuListView);
         menu_ListView.setAdapter(items);
+    }
+
+    private void clickMenuList() {
+        ListView menu_ListView = (ListView) findViewById(R.id.menuListView);
+        menu_ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View viewClicked, int position, long id) {
+                TextView text_View = (TextView) viewClicked;
+                String message = "You clicked # " + position + ", which is string: " + text_View.getText().toString();
+                Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }

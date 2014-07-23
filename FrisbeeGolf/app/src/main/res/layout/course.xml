@@ -21,14 +21,44 @@
             android:layout_marginRight="6dp"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp"
-            android:background="@drawable/bg_card">
+            android:background="@drawable/bg_card"
+            android:layout_gravity="center_horizontal|bottom"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:weightSum="1"><![CDATA[>
 
-            <!-- Card Contents go here -->
+            ]]>
 
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.56"
+                android:background="@drawable/bg_card"
+                android:id="@+id/linearLayout" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.04"
+                android:background="@drawable/bg_card">
+
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ratingBar" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.37"
+                android:background="@drawable/bg_card"></LinearLayout>
         </LinearLayout>
 
     </FrameLayout>
-
     <!-- android:layout_gravity="start" tells DrawerLayout to treat
          this as a sliding drawer on the left side for left-to-right
          languages and on the right side for right-to-left languages.
