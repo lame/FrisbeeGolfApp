@@ -7,6 +7,11 @@
         android:protectionLevel="signature"
         />
 
+    <uses-sdk
+        android:minSdkVersion="20"
+        android:targetSdkVersion="20"
+        />
+
     <uses-permission android:name="edu.fsu.cs.BadAssTeam.SpecialK.frisbeegolf.MAPS_RECEIVE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
