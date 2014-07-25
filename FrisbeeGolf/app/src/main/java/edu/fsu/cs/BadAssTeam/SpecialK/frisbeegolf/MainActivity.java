@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
@@ -50,27 +51,6 @@ public class MainActivity extends FragmentActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
-        /*
-        ((Button) findViewById(R.id.select)).setOnClickListener(new OnClickListener() {
-            public void onClick(View V) {
-                Intent intent = new Intent(MainActivity.this, Setup.class);
-                startActivityForResult(intent, 0);
-            }
-        });
-
-        ((Button) findViewById(R.id.leader)).setOnClickListener(new OnClickListener() {
-            public void onClick(View V) {
-                Intent intent = new Intent(MainActivity.this, Setup.class);
-                startActivityForResult(intent, 0);
-            }
-        });
-
-        ((Button) findViewById(R.id.about)).setOnClickListener(new OnClickListener() {
-            public void onClick(View V) {
-                Intent intent = new Intent(MainActivity.this, Setup.class);
-                startActivityForResult(intent, 0);
-            }
-        });*/
     }
 
     @Override
@@ -186,9 +166,21 @@ public class MainActivity extends FragmentActivity
         menu_ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View viewClicked, int position, long id) {
-                TextView text_View = (TextView) viewClicked;
-                String message = "You clicked # " + position + ", which is string: " + text_View.getText().toString();
-                Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+                switch( position ) {
+                    case 0:
+                        Intent intent = new Intent(MainActivity.this, Setup.class);
+                        startActivityForResult(intent, 0);
+                        break;
+                    case 1:
+                        Intent intent = new Intent(MainActivity.this, Leader.class);
+                        startActivityForResult(intent, 0);
+                        break;
+                    case 2:
+                        Intent intent = new Intent(MainActivity.this, About.class);
+                        startActivityForResult(intent, 0);
+                        break;
+                }
+
             }
         });
     }
