@@ -30,7 +30,7 @@ public class MapFragment {
     private final LatLng LOCATION_TOMBROWN = new LatLng(30.4468, 84.2146);
     private final LatLng LOCATION_JACKMCLEAN = new LatLng(30.406389,-84.272500);
 
-
+/*
     @Override
     protected void onCreate(Bundle savedInstanceState){
 //        super.onCreate(savedInstanceState);
@@ -63,5 +63,5 @@ public class MapFragment {
     }
 
 
-
+*/
 }

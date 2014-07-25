@@ -169,16 +169,16 @@ public class MainActivity extends FragmentActivity
             public void onItemClick(AdapterView<?> parent, View viewClicked, int position, long id) {
                 switch( position ) {
                     case 0:
-                        Intent intent = new Intent(MainActivity.this, Setup.class);
-                        startActivityForResult(intent, 0);
+                        Intent Setup = new Intent(MainActivity.this, Setup.class);
+                        startActivityForResult(Setup, 0);
                         break;
                     case 1:
-                        Intent intent = new Intent(MainActivity.this, Leader.class);
-                        startActivityForResult(intent, 0);
+                        Intent Leader = new Intent(MainActivity.this, Leader.class);
+                        startActivityForResult(Leader, 0);
                         break;
                     case 2:
-                        Intent intent = new Intent(MainActivity.this, About.class);
-                        startActivityForResult(intent, 0);
+                        Intent About = new Intent(MainActivity.this, About.class);
+                        startActivityForResult(About, 0);
                         break;
                 }
 

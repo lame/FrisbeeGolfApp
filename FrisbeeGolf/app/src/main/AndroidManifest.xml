@@ -41,7 +41,10 @@
             android:name="edu.fsu.cs.BadAssTeam.SpecialK.frisbeegolf.Setup"
             android:label="@string/app_name">
         </activity>
-
+        <activity
+            android:name="edu.fsu.cs.BadAssTeam.SpecialK.frisbeegolf.About"
+            android:label="@string/app_name">
+        </activity>
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBRJ5hBpgAshxdwRwvVyHDAyEqf49D6PLU"
