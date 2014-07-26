@@ -1,35 +1,22 @@
 package edu.fsu.cs.BadAssTeam.SpecialK.frisbeegolf;
 
-import android.app.ActionBar;
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.widget.DrawerLayout;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
-public class Setup extends FragmentActivity {
-    /**
-     * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
-     */
-    private NavigationDrawerFragment mNavigationDrawerFragment;
+public class Setup extends Activity {
 
-    /**
-     * Used to store the last screen title. For use in {@link #restoreActionBar()}.
-     */
-    private CharSequence mTitle;
-    public static FragmentManager fragmentManager;
-    private String selection;
+    private EditText p1_Name;
+    private EditText p2_Name;
+    private EditText p3_Name;
+    private EditText p4_Name;
+    private Spinner spinner_View;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,106 +26,26 @@ public class Setup extends FragmentActivity {
 
         // populate menu listView
         generateSpinner();
-/*
-        fragmentManager = getFragmentManager();
-
-        mNavigationDrawerFragment = (NavigationDrawerFragment)
-                getFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mTitle = getTitle();
-
-        //Set up the drawer.
-        mNavigationDrawerFragment.setUp(
-                R.id.navigation_drawer,
-               (DrawerLayout) findViewById(R.id.drawer_layout));*/
-    }
-
-    public void onSectionAttached(int number) {
-        switch (number) {
-            case 1:
-                mTitle = getString(R.string.title_section1);
-                break;
-            case 2:
-                mTitle = getString(R.string.title_section2);
-                break;
-            case 3:
-                mTitle = getString(R.string.title_section3);
-                break;
-        }
-    }
-
-    public void restoreActionBar() {
-        ActionBar actionBar = getActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-        actionBar.setDisplayShowTitleEnabled(true);
-        actionBar.setTitle(mTitle);
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        if (!mNavigationDrawerFragment.isDrawerOpen()) {
-            // Only show items in the action bar relevant to this screen
-            // if the drawer is not showing. Otherwise, let the drawer
-            // decide what to show in the action bar.
-            getMenuInflater().inflate(R.menu.main, menu);
-            restoreActionBar();
-            return true;
-        }
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            return rootView;
-        }
-
-        @Override
-        public void onAttach(Activity activity) {
-            super.onAttach(activity);
-            ((MainActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));
-        }
-
-
+        p1_Name = (EditText)findViewById(R.id.p1name);
+        p2_Name = (EditText)findViewById(R.id.p2name);
+        p3_Name = (EditText)findViewById(R.id.p3name);
+        p4_Name = (EditText)findViewById(R.id.p4name);
+        final String player1 = p1_Name.getText().toString();
+        final String player2 = p2_Name.getText().toString();
+        final String player3 = p3_Name.getText().toString();
+        final String player4 = p4_Name.getText().toString();
+        final String selection = spinner_View.getSelectedItem().toString();
+        ((Button) findViewById(R.id.start)).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View V) {
+                Intent newGame = new Intent(Setup.this, Game.class);
+                newGame.putExtra("course", selection);
+                newGame.putExtra("player1", player1);
+                newGame.putExtra("player2", player2);
+                newGame.putExtra("player3", player3);
+                newGame.putExtra("player4", player4);
+                startActivityForResult(newGame, 0);
+            }
+        });
     }
 
     private void generateSpinner() {
@@ -146,11 +53,10 @@ public class Setup extends FragmentActivity {
         String[] spinner_items = {"Tom Brown Park", "Jack McLean Park"};
 
         // Adapter
-        ArrayAdapter<String> items = new ArrayAdapter<String>(this, R.layout.config, spinner_items);
+        ArrayAdapter<String> items = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, spinner_items);
 
         // Configuring the list view
-        items.setDropDownViewResource( R.layout.config);
-        Spinner spinner_View = (Spinner) findViewById(R.id.spinner);
+        spinner_View = (Spinner) findViewById(R.id.spinner);
         spinner_View.setAdapter(items);
     }
 }

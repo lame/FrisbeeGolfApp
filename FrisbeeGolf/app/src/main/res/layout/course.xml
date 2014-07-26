@@ -1,376 +1,355 @@
-<!-- A DrawerLayout is intended to be used as the top-level content view using match_parent for both width and height to consume the full space available. -->
-<android.support.v4.widget.DrawerLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
+    android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <!-- As the main content view, the view below consumes the entire
-         space available using match_parent in both dimensions. -->
-    <LinearLayout
-        android:id="@+id/container"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="?android:attr/listPreferredItemHeight">
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:scrollbars="none" >
 
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/scrollView" >
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:weightSum="1">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
-                android:layout_marginRight="6dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
-                android:layout_gravity="center_horizontal"
-                android:orientation="vertical"
-                android:weightSum="1">
+                android:gravity="bottom"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal|bottom"
+                android:id="@+id/linearLayout"
+                android:baselineAligned="false">
 
-                <TableLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:background="@drawable/bg_card"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp">
-
-                    <TableRow
-                        android:id="@+id/headerRow"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:gravity="center_horizontal" >
-
-                        <TextView
-                            android:layout_width="25dp"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Hole: "
-                            android:id="@+id/title_hole" />
-
-                        <TextView
-                            android:layout_width="58dp"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="0 "
-                            android:id="@+id/hole_Num" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="8dp"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text=" "
-                            android:id="@+id/textView17"
-                            android:singleLine="true" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Par: "
-                            android:id="@+id/title_par" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="0"
-                            android:id="@+id/par_Num" />
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/playerRow1"
-                        android:layout_width="8dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical|center_horizontal"
-                        android:layout_gravity="center_vertical">
-
-                        <TextView
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Player 1"
-                            android:id="@+id/p1_Name" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="8dp"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text=" "
-                            android:id="@+id/space"
-                            android:singleLine="true" />
-
-                        <Button
-                            style="?android:attr/buttonStyleSmall"
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
-                            android:text="-"
-                            android:id="@+id/p1-"
-                            android:layout_margin="8dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="0"
-                            android:id="@+id/p1_throw"
-                            android:gravity="center_horizontal" />
-
-                        <Button
-                            style="?android:attr/buttonStyleSmall"
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
-                            android:text="+"
-                            android:id="@+id/p1+"
-                            android:layout_margin="8dp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/playerRow2"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical|center_horizontal"
-                        android:layout_gravity="center_vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Player 2"
-                            android:id="@+id/p2_Name" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="8dp"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text=" "
-                            android:id="@+id/textView13"
-                            android:singleLine="true" />
-
-                        <Button
-                            style="?android:attr/buttonStyleSmall"
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
-                            android:text="-"
-                            android:id="@+id/p2-"
-                            android:layout_margin="8dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="0"
-                            android:id="@+id/textView6"
-                            android:gravity="center_horizontal" />
-
-                        <Button
-                            style="?android:attr/buttonStyleSmall"
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
-                            android:text="+"
-                            android:id="@+id/p2+"
-                            android:layout_margin="8dp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/playerRow3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical|center_horizontal"
-                        android:layout_gravity="center_vertical">
-
-                        <TextView
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Player 3"
-                            android:id="@+id/p3_Name" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="8dp"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text=" "
-                            android:id="@+id/textView14"
-                            android:singleLine="true" />
-
-                        <Button
-                            style="?android:attr/buttonStyleSmall"
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
-                            android:text="-"
-                            android:id="@+id/p3-"
-                            android:layout_margin="8dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="0"
-                            android:id="@+id/textView8"
-                            android:gravity="center_horizontal" />
-
-                        <Button
-                            style="?android:attr/buttonStyleSmall"
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
-                            android:text="+"
-                            android:id="@+id/p3+"
-                            android:layout_margin="8dp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/playerRow4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical|center_horizontal"
-                        android:layout_gravity="center_vertical">
-
-                        <TextView
-                            android:layout_width="100dp"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Player 4"
-                            android:id="@+id/p4_Name" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="8dp"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text=" "
-                            android:id="@+id/textView15"
-                            android:singleLine="true" />
-
-                        <Button
-                            style="?android:attr/buttonStyleSmall"
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
-                            android:text="-"
-                            android:id="@+id/p4-"
-                            android:layout_margin="8dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="0"
-                            android:id="@+id/textView10"
-                            android:gravity="center_horizontal" />
-
-                        <Button
-                            style="?android:attr/buttonStyleSmall"
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
-                            android:text="+"
-                            android:id="@+id/p4+"
-                            android:layout_margin="8dp" />
-                    </TableRow>
-
-                </TableLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
+                <Button
+                    android:layout_width="170dp"
                     android:layout_height="wrap_content"
+                    android:text="Previous Hole"
+                    android:id="@+id/start"
+                    android:contentDescription="Start Game"
+                    android:layout_marginBottom="4dp"
                     android:background="@drawable/bg_card"
                     android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
+                    android:layout_gravity="left"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp">
+                    android:layout_marginRight="4dp" />
 
-                    <RatingBar
-                        android:layout_width="wrap_content"
+                <Button
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:text="Next Hole"
+                    android:id="@+id/button"
+                    android:contentDescription="Start Game"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/bg_card"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_gravity="right" />
+            </LinearLayout>
+
+            <TableLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/bg_card"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp">
+
+                <TableRow
+                    android:id="@+id/headerRow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_horizontal" >
+
+                    <TextView
+                        android:layout_width="25dp"
                         android:layout_height="wrap_content"
-                        android:id="@+id/ratingBar" />
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Hole : "
+                        android:id="@+id/title_hole" />
+
+                    <TextView
+                        android:layout_width="58dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="0 "
+                        android:id="@+id/hole_Num" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="8dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text=" "
+                        android:id="@+id/textView17"
+                        android:singleLine="true" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Rate Me!"
-                        android:id="@+id/textView18"
-                        android:layout_gravity="center_vertical"
-                        android:phoneNumber="true"
-                        android:layout_marginLeft="8dp" />
-                </LinearLayout>
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Par : "
+                        android:id="@+id/title_par" />
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="0"
+                        android:id="@+id/par_Num" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/playerRow1"
+                    android:layout_width="8dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.37"
-                    android:background="@drawable/bg_card"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp">
-<!--
-                    <fragment
-                        android:id="@+id/map_course"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        class="com.google.android.gms.maps.SupportMapFragment"
-                        /> -->
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_gravity="center_vertical">
 
-                </LinearLayout>
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Player 1"
+                        android:id="@+id/p1_Name" />
 
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="bottom"
-                    android:orientation="horizontal"
-                    android:layout_gravity="center_horizontal|bottom"
-                    android:id="@+id/linearLayout">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="8dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text=" "
+                        android:id="@+id/space"
+                        android:singleLine="true" />
 
                     <Button
-                        android:layout_width="170dp"
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:text="-"
+                        android:id="@+id/p1minus"
+                        android:layout_margin="8dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Previous Hole"
-                        android:id="@+id/start"
-                        android:contentDescription="Start Game"
-                        android:layout_marginBottom="4dp"
-                        android:background="@drawable/bg_card"
-                        android:layout_marginTop="4dp"
-                        android:layout_gravity="left"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="4dp" />
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="0"
+                        android:id="@+id/p1_throw"
+                        android:gravity="center_horizontal" />
 
                     <Button
-                        android:layout_width="170dp"
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:text="+"
+                        android:id="@+id/p1add"
+                        android:layout_margin="8dp" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/playerRow2"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Next Hole"
-                        android:id="@+id/button"
-                        android:contentDescription="Start Game"
-                        android:layout_marginBottom="4dp"
-                        android:background="@drawable/bg_card"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginLeft="4dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_gravity="right" />
-                </LinearLayout>
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Player 2"
+                        android:id="@+id/p2_Name" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="8dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text=" "
+                        android:id="@+id/textView13"
+                        android:singleLine="true" />
 
+                    <Button
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:text="-"
+                        android:id="@+id/p2minus"
+                        android:layout_margin="8dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="0"
+                        android:id="@+id/p2_throw"
+                        android:gravity="center_horizontal" />
+
+                    <Button
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:text="+"
+                        android:id="@+id/p2plus"
+                        android:layout_margin="8dp" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/playerRow3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Player 3"
+                        android:id="@+id/p3_Name" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="8dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text=" "
+                        android:id="@+id/spacer"
+                        android:singleLine="true" />
+
+                    <Button
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:text="-"
+                        android:id="@+id/p3minus"
+                        android:layout_margin="8dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="0"
+                        android:id="@+id/textView8"
+                        android:gravity="center_horizontal" />
+
+                    <Button
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:text="+"
+                        android:id="@+id/p3plus"
+                        android:layout_margin="8dp" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/playerRow4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Player 4"
+                        android:id="@+id/p4_Name" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="8dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text=" "
+                        android:id="@+id/textView15"
+                        android:singleLine="true" />
+
+                    <Button
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:text="-"
+                        android:id="@+id/p4minus"
+                        android:layout_margin="8dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="0"
+                        android:id="@+id/textView10"
+                        android:gravity="center_horizontal" />
+
+                    <Button
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:text="+"
+                        android:id="@+id/p4plus"
+                        android:layout_margin="8dp" />
+                </TableRow>
+
+            </TableLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ratingBar" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Rate Hole!"
+                    android:id="@+id/title_rate"
+                    android:layout_gravity="center_vertical"
+                    android:phoneNumber="true"
+                    android:layout_marginLeft="8dp"
+                    android:password="false" />
             </LinearLayout>
-        </ScrollView>
 
-    </LinearLayout>
-    <!-- android:layout_gravity="start" tells DrawerLayout to treat
-         this as a sliding drawer on the left side for left-to-right
-         languages and on the right side for right-to-left languages.
-         If you're not building against API 17 or higher, use
-         android:layout_gravity="left" instead. -->
-    <!-- The drawer is given a fixed width in dp and extends the full height of
-         the container. -->
-    <!-- <fragment android:id="@+id/navigation_drawer"
-        android:layout_width="@dimen/navigation_drawer_width"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:name="edu.fsu.cs.BadAssTeam.SpecialK.frisbeegolf.NavigationDrawerFragment"
-        tools:layout="@layout/fragment_navigation_drawer" /> -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_weight="0.37"
+                android:background="@drawable/bg_card"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
 
-</android.support.v4.widget.DrawerLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Hole Layout :"
+                    android:id="@+id/textView"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

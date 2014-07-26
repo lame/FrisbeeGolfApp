@@ -1,177 +1,281 @@
-<!-- A DrawerLayout is intended to be used as the top-level content view using match_parent for both width and height to consume the full space available. -->
-<android.support.v4.widget.DrawerLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
 
-    <!-- As the main content view, the view below consumes the entire
-         space available using match_parent in both dimensions. -->
     <LinearLayout
-        android:id="@+id/container"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_height="fill_parent"
+        android:weightSum="1">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:weightSum="1">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/bg_card"
+            android:id="@+id/linearLayout"
+            android:layout_marginBottom="4dp"
+            android:layout_gravity="top">
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:background="@drawable/bg_card"
-                android:id="@+id/linearLayout"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Select Course:"
+                android:id="@+id/courseHeader"
+                android:phoneNumber="true"
+                android:layout_marginTop="4dp"
                 android:layout_marginBottom="4dp"
-                android:layout_gravity="top">
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Select Course:"
-                    android:id="@+id/courseHeader"
-                    android:phoneNumber="true"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp" />
-
-                <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/spinner"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_below="@+id/logo"
-                    android:contentDescription="Select Course"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
+            <Spinner
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginTop="4dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:background="@drawable/bg_card"
-                android:id="@+id/linearLayout2"
-                android:layout_weight="0.77"
-                android:layout_marginBottom="4dp">
+                android:layout_below="@+id/logo"
+                android:contentDescription="Select Course"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp" />
+        </LinearLayout>
 
-                <!--<fragment
-                    android:id="@+id/map_config"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    class="com.google.android.gms.maps.SupportMapFragment" /> -->
-            </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/bg_card"
+            android:id="@+id/linearLayout2"
+            android:layout_weight="0.77"
+            android:layout_marginBottom="4dp">
+        </LinearLayout>
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/horizontalScrollView"
+            android:scrollbars="none" >
 
             <LinearLayout
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:background="@drawable/bg_card"
                 android:layout_marginBottom="4dp"
                 android:layout_gravity="bottom">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Players:"
-                    android:id="@+id/playerHeader"
-                    android:phoneNumber="true"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="320dp"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/player_card1"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:background="@drawable/bg_card">
 
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/horizontalScrollView" >
-
-                    <TextView
+                    <LinearLayout
+                        android:orientation="horizontal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Player 1"
-                        android:id="@+id/textView"
-                        android:layout_gravity="center_horizontal" />
-                </HorizontalScrollView>
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Max 4 Players"
-                    android:id="@+id/textView2"
-                    android:layout_below="@+id/start"
-                    android:gravity="center_horizontal"
-                    android:layout_marginBottom="10dp"
-                    android:singleLine="true"
-                    android:phoneNumber="true"
-                    android:layout_gravity="center_horizontal" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="Players 1:"
+                            android:id="@+id/textView9"
+                            android:phoneNumber="true"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:layout_marginRight="4dp" />
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:text="Name"
-                    android:ems="10"
-                    android:id="@+id/editText"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="Max 4 Players"
+                            android:id="@+id/textView10"
+                            android:layout_below="@+id/start"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:phoneNumber="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="4dp" />
+                    </LinearLayout>
 
-            </LinearLayout>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:text="Name"
+                        android:ems="10"
+                        android:id="@+id/p1name"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp" />
+                </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal|bottom"
-                android:orientation="vertical"
-                android:layout_gravity="center_horizontal|bottom">
-                <Button
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:text="Start Game"
-                    android:id="@+id/start"
-                    android:contentDescription="Start Game"
-                    android:layout_marginBottom="4dp"
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="320dp"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/player_card2"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:background="@drawable/bg_card">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="Players 2:"
+                            android:id="@+id/textView15"
+                            android:phoneNumber="true"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:layout_marginRight="4dp" />
+
+                    </LinearLayout>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:text="Name"
+                        android:ems="10"
+                        android:id="@+id/p2name"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="320dp"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/player_card3"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:background="@drawable/bg_card">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="Players 3:"
+                            android:id="@+id/textView12"
+                            android:phoneNumber="true"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:layout_marginRight="4dp" />
+
+                    </LinearLayout>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:text="Name"
+                        android:ems="10"
+                        android:id="@+id/p3name"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="320dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
                     android:background="@drawable/bg_card"
-                    android:layout_marginTop="4dp" />
+                    android:id="@+id/player_card4">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="Players 4:"
+                            android:id="@+id/playerHeader"
+                            android:phoneNumber="true"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:layout_marginRight="4dp" />
+
+                    </LinearLayout>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:text="Name"
+                        android:ems="10"
+                        android:id="@+id/p4name"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp" />
+
+                </LinearLayout>
 
             </LinearLayout>
+        </HorizontalScrollView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|bottom"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal|bottom">
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Start Game"
+                android:id="@+id/start"
+                android:contentDescription="Start Game"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/bg_card"
+                android:layout_marginTop="4dp" />
 
         </LinearLayout>
 
     </LinearLayout>
-    <!-- android:layout_gravity="start" tells DrawerLayout to treat
-         this as a sliding drawer on the left side for left-to-right
-         languages and on the right side for right-to-left languages.
-         If you're not building against API 17 or higher, use
-         android:layout_gravity="left" instead. -->
-    <!-- The drawer is given a fixed width in dp and extends the full height of
-         the container. -->
-    <!--<fragment android:id="@+id/navigation_drawer1"
-        android:layout_width="@dimen/navigation_drawer_width"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:name="edu.fsu.cs.BadAssTeam.SpecialK.frisbeegolf.NavigationDrawerFragment"
-        tools:layout="@layout/fragment_navigation_drawer" /> -->
 
-</android.support.v4.widget.DrawerLayout>
+</LinearLayout>

@@ -16,4 +16,9 @@ public class Game extends Activity {
         setContentView(R.layout.course);
     }
 
+    // disables the back button
+    @Override
+    public void onBackPressed() {
+    }
+
 }
