@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
@@ -13,6 +14,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 public class Setup extends FragmentActivity {
     /**
@@ -25,6 +29,7 @@ public class Setup extends FragmentActivity {
      */
     private CharSequence mTitle;
     public static FragmentManager fragmentManager;
+    private String selection;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,13 +37,16 @@ public class Setup extends FragmentActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.config);
 
+        // populate menu listView
+        generateSpinner();
+/*
         fragmentManager = getFragmentManager();
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
 
-        /* Set up the drawer.
+        //Set up the drawer.
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                (DrawerLayout) findViewById(R.id.drawer_layout));*/
@@ -133,4 +141,16 @@ public class Setup extends FragmentActivity {
 
     }
 
+    private void generateSpinner() {
+        // content of the Menu ListView
+        String[] spinner_items = {"Tom Brown Park", "Jack McLean Park"};
+
+        // Adapter
+        ArrayAdapter<String> items = new ArrayAdapter<String>(this, R.layout.config, spinner_items);
+
+        // Configuring the list view
+        items.setDropDownViewResource( R.layout.config);
+        Spinner spinner_View = (Spinner) findViewById(R.id.spinner);
+        spinner_View.setAdapter(items);
+    }
 }

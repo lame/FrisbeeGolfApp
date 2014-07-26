@@ -33,7 +33,11 @@
                 <TableLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:background="@drawable/bg_card">
+                    android:background="@drawable/bg_card"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp">
 
                     <TableRow
                         android:id="@+id/headerRow"
@@ -47,14 +51,14 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Hole: "
-                            android:id="@+id/textView" />
+                            android:id="@+id/title_hole" />
 
                         <TextView
                             android:layout_width="58dp"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="0 "
-                            android:id="@+id/textView11" />
+                            android:id="@+id/hole_Num" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -69,29 +73,29 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Par: "
-                            android:id="@+id/textView2" />
+                            android:id="@+id/title_par" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="0"
-                            android:id="@+id/textView12" />
+                            android:id="@+id/par_Num" />
                     </TableRow>
 
                     <TableRow
                         android:id="@+id/playerRow1"
                         android:layout_width="8dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:gravity="center_horizontal" >
+                        android:gravity="center_vertical|center_horizontal"
+                        android:layout_gravity="center_vertical">
 
                         <TextView
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Player 1"
-                            android:id="@+id/textView3" />
+                            android:id="@+id/p1_Name" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -103,40 +107,42 @@
 
                         <Button
                             style="?android:attr/buttonStyleSmall"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:text="-"
-                            android:id="@+id/button" />
+                            android:id="@+id/p1-"
+                            android:layout_margin="8dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="0"
-                            android:id="@+id/textView4"
+                            android:id="@+id/p1_throw"
                             android:gravity="center_horizontal" />
 
                         <Button
                             style="?android:attr/buttonStyleSmall"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:text="+"
-                            android:id="@+id/button2" />
+                            android:id="@+id/p1+"
+                            android:layout_margin="8dp" />
                     </TableRow>
 
                     <TableRow
                         android:id="@+id/playerRow2"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:gravity="center_horizontal" >
+                        android:gravity="center_vertical|center_horizontal"
+                        android:layout_gravity="center_vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Player 2"
-                            android:id="@+id/textView5" />
+                            android:id="@+id/p2_Name" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -148,10 +154,11 @@
 
                         <Button
                             style="?android:attr/buttonStyleSmall"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:text="-"
-                            android:id="@+id/button3" />
+                            android:id="@+id/p2-"
+                            android:layout_margin="8dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -163,25 +170,26 @@
 
                         <Button
                             style="?android:attr/buttonStyleSmall"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:text="+"
-                            android:id="@+id/button4" />
+                            android:id="@+id/p2+"
+                            android:layout_margin="8dp" />
                     </TableRow>
 
                     <TableRow
                         android:id="@+id/playerRow3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:gravity="center_horizontal" >
+                        android:gravity="center_vertical|center_horizontal"
+                        android:layout_gravity="center_vertical">
 
                         <TextView
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Player 3"
-                            android:id="@+id/textView7" />
+                            android:id="@+id/p3_Name" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -193,10 +201,11 @@
 
                         <Button
                             style="?android:attr/buttonStyleSmall"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:text="-"
-                            android:id="@+id/button5" />
+                            android:id="@+id/p3-"
+                            android:layout_margin="8dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -208,25 +217,26 @@
 
                         <Button
                             style="?android:attr/buttonStyleSmall"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:text="+"
-                            android:id="@+id/button7" />
+                            android:id="@+id/p3+"
+                            android:layout_margin="8dp" />
                     </TableRow>
 
                     <TableRow
                         android:id="@+id/playerRow4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:gravity="center_horizontal" >
+                        android:gravity="center_vertical|center_horizontal"
+                        android:layout_gravity="center_vertical">
 
                         <TextView
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:text="Player 4"
-                            android:id="@+id/textView9" />
+                            android:id="@+id/p4_Name" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -238,10 +248,11 @@
 
                         <Button
                             style="?android:attr/buttonStyleSmall"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:text="-"
-                            android:id="@+id/button8" />
+                            android:id="@+id/p4-"
+                            android:layout_margin="8dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -253,10 +264,11 @@
 
                         <Button
                             style="?android:attr/buttonStyleSmall"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:text="+"
-                            android:id="@+id/button9" />
+                            android:id="@+id/p4+"
+                            android:layout_margin="8dp" />
                     </TableRow>
 
                 </TableLayout>
@@ -266,7 +278,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_card"
-                    android:layout_marginTop="8dp">
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp">
 
                     <RatingBar
                         android:layout_width="wrap_content"
@@ -290,15 +305,53 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.37"
                     android:background="@drawable/bg_card"
-                    android:layout_marginTop="8dp">
-
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp">
+<!--
                     <fragment
                         android:id="@+id/map_course"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         class="com.google.android.gms.maps.SupportMapFragment"
-                        />
+                        /> -->
 
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="bottom"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:id="@+id/linearLayout">
+
+                    <Button
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:text="Previous Hole"
+                        android:id="@+id/start"
+                        android:contentDescription="Start Game"
+                        android:layout_marginBottom="4dp"
+                        android:background="@drawable/bg_card"
+                        android:layout_marginTop="4dp"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="4dp" />
+
+                    <Button
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:text="Next Hole"
+                        android:id="@+id/button"
+                        android:contentDescription="Start Game"
+                        android:layout_marginBottom="4dp"
+                        android:background="@drawable/bg_card"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_gravity="right" />
                 </LinearLayout>
 
 
@@ -313,11 +366,11 @@
          android:layout_gravity="left" instead. -->
     <!-- The drawer is given a fixed width in dp and extends the full height of
          the container. -->
-    <fragment android:id="@+id/navigation_drawer"
+    <!-- <fragment android:id="@+id/navigation_drawer"
         android:layout_width="@dimen/navigation_drawer_width"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:name="edu.fsu.cs.BadAssTeam.SpecialK.frisbeegolf.NavigationDrawerFragment"
-        tools:layout="@layout/fragment_navigation_drawer" />
+        tools:layout="@layout/fragment_navigation_drawer" /> -->
 
 </android.support.v4.widget.DrawerLayout>
