@@ -107,43 +107,17 @@ public class Game extends Activity {
         });
 
         // Moving to next or previous holes
-        if(holeNum != 1) {
-            ((Button) findViewById(R.id.previous)).setOnClickListener(new View.OnClickListener() {
-                public void onClick(View V) {
-                    holeNum--;
-                    Intent nextHole = new Intent(Game.this, Game.class);
-                    nextHole.putExtra("hole", holeNum);
-                    nextHole.putExtra("course", course);
-                    nextHole.putExtra("player1", player1);
-                    nextHole.putExtra("player2", player2);
-                    nextHole.putExtra("player3", player3);
-                    nextHole.putExtra("player4", player4);
-                    startActivityForResult(nextHole, 0);
-                    finish();
-                }
-            });
-        } else {
+        if(holeNum != 1)
+            backAction();
+        else {
             ((Button) findViewById(R.id.previous)).setOnClickListener(new View.OnClickListener() {
                 public void onClick(View V) {
                     Toast.makeText(Game.this,
                             "You have reached the first hole.\nGo to summary to exit game.", Toast.LENGTH_LONG).show();
-                }});
+            }});
         }
         if(holeNum != 24) {
-            ((Button) findViewById(R.id.next)).setOnClickListener(new View.OnClickListener() {
-                public void onClick(View V) {
-                    holeNum++;
-                    Intent nextHole = new Intent(Game.this, Game.class);
-                    nextHole.putExtra("hole", holeNum);
-                    nextHole.putExtra("course", course);
-                    nextHole.putExtra("player1", player1);
-                    nextHole.putExtra("player2", player2);
-                    nextHole.putExtra("player3", player3);
-                    nextHole.putExtra("player4", player4);
-                    startActivityForResult(nextHole, 0);
-                    finish();
-                }
-            });
+            nextAction();
         } else {
             ((Button) findViewById(R.id.next)).setOnClickListener(new View.OnClickListener() {
                 public void onClick(View V) {
@@ -153,7 +127,7 @@ public class Game extends Activity {
             });
         }
 
-        ((Button) findViewById(R.id.next)).setOnClickListener(new View.OnClickListener() {
+        ((Button) findViewById(R.id.summary)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View V) {
                 Intent endGame = new Intent(Game.this, Summary.class);
                 endGame.putExtra("current", holeNum);
@@ -198,5 +172,39 @@ public class Game extends Activity {
         } else {
             p4.setText(player4);
         }
+    }
+
+    public void backAction() {
+        ((Button) findViewById(R.id.previous)).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View V) {
+                holeNum--;
+                Intent nextHole = new Intent(Game.this, Game.class);
+                nextHole.putExtra("hole", holeNum);
+                nextHole.putExtra("course", course);
+                nextHole.putExtra("player1", player1);
+                nextHole.putExtra("player2", player2);
+                nextHole.putExtra("player3", player3);
+                nextHole.putExtra("player4", player4);
+                startActivityForResult(nextHole, 0);
+                finish();
+            }
+        });
+    }
+
+    public void nextAction() {
+        ((Button) findViewById(R.id.next)).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View V) {
+                holeNum++;
+                Intent nextHole = new Intent(Game.this, Game.class);
+                nextHole.putExtra("hole", holeNum);
+                nextHole.putExtra("course", course);
+                nextHole.putExtra("player1", player1);
+                nextHole.putExtra("player2", player2);
+                nextHole.putExtra("player3", player3);
+                nextHole.putExtra("player4", player4);
+                startActivityForResult(nextHole, 0);
+                finish();
+            }
+        });
     }
 }

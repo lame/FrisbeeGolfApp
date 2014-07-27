@@ -350,7 +350,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="Summary"
-                    android:id="@+id/button"
+                    android:id="@+id/summary"
                     android:contentDescription="Start Game"
                     android:background="@drawable/bg_card"
                     android:layout_marginTop="4dp"
