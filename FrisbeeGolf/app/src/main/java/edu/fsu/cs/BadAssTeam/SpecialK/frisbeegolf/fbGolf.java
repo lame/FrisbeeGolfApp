@@ -129,6 +129,14 @@ public class fbGolf{
         }
         return score;
     }
+
+    public void setZeroArray(int p){
+        int player = p;
+
+        for(int i = 0; i < ll.length; ++i){
+            ll[player].playerPutts[i] = 0;
+        }
+    }
 }
 
 /* package edu.fsu.cs.BadAssTeam.SpecialK.frisbeegolf;
