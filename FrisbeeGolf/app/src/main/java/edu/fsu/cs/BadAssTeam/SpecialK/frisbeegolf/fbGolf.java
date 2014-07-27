@@ -3,9 +3,6 @@ package edu.fsu.cs.BadAssTeam.SpecialK.frisbeegolf;
 /**
  * Created by k on 7/19/14.
  */
-import java.util.Arrays;
-import java.util.Scanner;
-
 class playerStruct{
 
     protected String playerName;
@@ -14,7 +11,7 @@ class playerStruct{
     protected int courseNum;
     protected int[] playerPutts;
 
-    playerStruct(int lNum, int num, int cN, String n){
+    playerStruct(int lNum   , int num, int cN, String n){
         this.lNum = lNum;
         this.holeNum = num;
         this.courseNum = cN;
@@ -105,6 +102,19 @@ public class fbGolf{
         else
             return AVE_PAR;
         return parNumber;
+    }
+
+    public void setPutts(int p, int hN, int s){
+        int player = p;
+        int holeNum = hN;
+        int score = s;
+
+        ll[player].playerPutts[holeNum] = score;
+
+    }
+
+    public int getPutts(){
+        
     }
 }
 
