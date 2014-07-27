@@ -113,8 +113,11 @@ public class fbGolf{
 
     }
 
-    public int getPutts(){
-        
+    public int getPutts(int p, int hN){
+        int player = p;
+        int holeNum = hN;
+
+        return ll[player].playerPutts[holeNum];
     }
 }
 
