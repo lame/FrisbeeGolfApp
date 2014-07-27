@@ -3,18 +3,19 @@ package edu.fsu.cs.BadAssTeam.SpecialK.frisbeegolf;
 /**
  * Created by k on 7/19/14.
  */
-import java.util.Scanner;
-import java.util.LinkedList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 class playerStruct{
 
     protected String playerName;
-    protected int holeNum;
+    protected int lNum;                //link (node) number
+    protected int holeNum;          //total amount of holes
     protected int courseNum;
     protected int[] playerPutts;
 
-    playerStruct(int num, int cN, String n){
+    playerStruct(int lNum, int num, int cN, String n){
+        this.lNum = lNum;
         this.holeNum = num;
         this.courseNum = cN;
         this.playerName = n;
@@ -38,10 +39,7 @@ public class Player{
 
     public static void main(String args[]){
 
-        LinkedList <playerStruct> ll = new LinkedList <playerStruct>();
-
         int parSum = 0;
-        int score = 0;
         int holeCount;
         int courseNum;
         int playerNum;
@@ -58,14 +56,16 @@ public class Player{
         playerNum = in.nextInt();
         in.nextLine();
 
+        playerStruct[] ll = new playerStruct[playerNum];
+
         for(int i = 0; i<playerNum; ++i){
             System.out.printf("Player %d Name:\n", i+1);
             name = in.nextLine();
 
-            ll.add(new playerStruct(holeCount, courseNum, name));
+            ll[i] = (new playerStruct(i, holeCount, courseNum, name));
         }
 
-        for(playerStruct element : ll){
+        for(playerStruct element : ll){             //NOT SURE IF WORKS
             System.out.println(element + "\n");
         }
 
@@ -85,7 +85,8 @@ public class Player{
                 System.out.printf("Hole %d Par is %d\n\n", j, par);
                 System.out.printf("Player %d Putts for hole %d: ",i, j );
                 putts = in.nextInt();
-                //ll.set(i.playerPutts[j], (int) putts);
+                System.out.println();
+                ll[i].playerPutts[j] = (int) putts;
 
                 System.out.printf("\n\n");
             }
@@ -93,11 +94,12 @@ public class Player{
             System.out.printf("LEADERBOARD\n\n");
 
             for(int i = 0; i < playerNum; ++i){
+                int score = 0;
                 for(int k=0; k < holeCount; ++k){
-                   // score += ll.get(i.playerPutts[k]);
+                    score += ll[i].playerPutts[k];
                 }
                 score = score - parSum;
-                System.out.printf("Player %d Score: %d",i, score);
+                System.out.printf("Player %d Score: %d\n",i, score);
             }
         }
     }
