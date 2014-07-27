@@ -119,6 +119,16 @@ public class fbGolf{
 
         return ll[player].playerPutts[holeNum];
     }
+
+    public int getTotalScore(int p){
+        int player = p;
+        int score = 0;
+
+        for(int i = 0; i < ll.length; ++i){
+            score += ll[player].playerPutts[i];
+        }
+        return score;
+    }
 }
 
 /* package edu.fsu.cs.BadAssTeam.SpecialK.frisbeegolf;
