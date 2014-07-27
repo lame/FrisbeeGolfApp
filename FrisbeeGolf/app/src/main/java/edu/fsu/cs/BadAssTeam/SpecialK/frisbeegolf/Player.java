@@ -5,7 +5,7 @@ package edu.fsu.cs.BadAssTeam.SpecialK.frisbeegolf;
  */
 import java.util.Arrays;
 import java.util.Scanner;
-
+/*
 class playerStruct{
 
     protected String playerName;
@@ -26,7 +26,7 @@ class playerStruct{
         return holeNum + " " + courseNum + " " + playerName + " " + Arrays.toString(playerPutts);
     }
 }
-
+*/
 public class Player{
 
     protected int playerPutts[];
@@ -69,7 +69,6 @@ public class Player{
             System.out.println(element + "\n");
         }
 
-        System.out.printf("\n\n\n\n\n START GAME\n\n\n");
         // 	j = Hole Number
         for(int j=0; j < holeCount; ++j){
             //	i = Player Number
@@ -80,10 +79,6 @@ public class Player{
 
                 int putts;
 
-                System.out.printf("Player %d Turn\n", i);
-
-                System.out.printf("Hole %d Par is %d\n\n", j, par);
-                System.out.printf("Player %d Putts for hole %d: ",i, j );
                 putts = in.nextInt();
                 System.out.println();
                 ll[i].playerPutts[j] = (int) putts;

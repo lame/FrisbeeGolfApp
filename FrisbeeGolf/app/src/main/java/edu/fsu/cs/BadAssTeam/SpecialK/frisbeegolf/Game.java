@@ -8,6 +8,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by lance on 7/25/14.
@@ -15,10 +16,11 @@ import android.widget.TextView;
 public class Game extends Activity {
 
     // declaring variables
-    private int holeNum, parNumber = 0, p1Throw=0, p2Throw=0, p3Throw=0, p4Throw=0;
+    private fbGolf DGolf;
+    private int holeNum, parNumber = 0, course = 0, p1Throw=0, p2Throw=0, p3Throw=0, p4Throw=0;
     private TextView hole_Number, par_Number;
     private TextView p1, p2, p3, p4, p1_throw, p2_throw, p3_throw, p4_throw;
-    private String player1, player2, player3, player4, course, hole_Num;
+    private String player1, player2, player3, player4, hole_Num;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,13 +29,13 @@ public class Game extends Activity {
         setContentView(R.layout.course);
 
         // retrieving passed data from previous activity
-        Intent newGame = getIntent();
-        holeNum = newGame.getIntExtra("hole", 1);
-        course = newGame.getStringExtra("course");
-        player1 = newGame.getStringExtra("player1");
-        player2 = newGame.getStringExtra("player2");
-        player3 = newGame.getStringExtra("player3");
-        player4 = newGame.getStringExtra("player4");
+        Bundle newGame = getIntent().getExtras();
+        holeNum = newGame.getInt("hole");
+        course = newGame.getInt("course");
+        player1 = newGame.getString("player1");
+        player2 = newGame.getString("player2");
+        player3 = newGame.getString("player3");
+        player4 = newGame.getString("player4");
 
         // instantiating TextViews
         p1 = (TextView) findViewById(R.id.p1_Name);
@@ -51,20 +53,26 @@ public class Game extends Activity {
         if("".equals(player2)){
             TableRow player2 = (TableRow) findViewById(R.id.playerRow2);
             player2.setVisibility(View.GONE);
-        } else
+        } else {
             p2.setText(player2);
+        }
         if("".equals(player3)){
             TableRow player3 = (TableRow) findViewById(R.id.playerRow3);
             player3.setVisibility(View.GONE);
-        } else
+        } else {
             p3.setText(player3);
+        }
         if("".equals(player4)){
             TableRow player4 = (TableRow) findViewById(R.id.playerRow4);
             player4.setVisibility(View.GONE);
-        } else
+        } else {
             p4.setText(player4);
+        }
         hole_Num = Integer.toString(holeNum);
         hole_Number.setText(hole_Num);
+
+        // initializing linked-list for storage
+        DGolf = new fbGolf(course, player1, player2, player3, player4);
 
         // instantiating and implementing add and minus buttons
         ((Button) findViewById(R.id.p1plus)).setOnClickListener(new View.OnClickListener() {
@@ -121,7 +129,7 @@ public class Game extends Activity {
         });
 
         // Moving to next or previous holes
-        if(holeNum != 1)
+        if(holeNum != 1) {
             ((Button) findViewById(R.id.previous)).setOnClickListener(new View.OnClickListener() {
                 public void onClick(View V) {
                     holeNum--;
@@ -136,21 +144,45 @@ public class Game extends Activity {
                     finish();
                 }
             });
+        } else {
+            ((Button) findViewById(R.id.previous)).setOnClickListener(new View.OnClickListener() {
+                public void onClick(View V) {
+                    Toast.makeText(Game.this,
+                            "You have reached the first hole.\nGo to summary to exit game.", Toast.LENGTH_LONG).show();
+                }});
+        }
+        if(holeNum != 24) {
+            ((Button) findViewById(R.id.next)).setOnClickListener(new View.OnClickListener() {
+                public void onClick(View V) {
+                    holeNum++;
+                    Intent nextHole = new Intent(Game.this, Game.class);
+                    nextHole.putExtra("hole", holeNum);
+                    nextHole.putExtra("course", course);
+                    nextHole.putExtra("player1", player1);
+                    nextHole.putExtra("player2", player2);
+                    nextHole.putExtra("player3", player3);
+                    nextHole.putExtra("player4", player4);
+                    startActivityForResult(nextHole, 0);
+                    finish();
+                }
+            });
+        } else {
+            ((Button) findViewById(R.id.next)).setOnClickListener(new View.OnClickListener() {
+                public void onClick(View V) {
+                    Toast.makeText(Game.this,
+                            "You have reached the last hole.\nGo to summary to end game.", Toast.LENGTH_LONG).show();
+                }
+            });
+        }
+
         ((Button) findViewById(R.id.next)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View V) {
-                holeNum++;
-                Intent nextHole = new Intent(Game.this, Game.class);
-                nextHole.putExtra("hole", holeNum);
-                nextHole.putExtra("course", course);
-                nextHole.putExtra("player1", player1);
-                nextHole.putExtra("player2", player2);
-                nextHole.putExtra("player3", player3);
-                nextHole.putExtra("player4", player4);
-                startActivityForResult(nextHole, 0);
+                Intent endGame = new Intent(Game.this, Summary.class);
+                endGame.putExtra("current", holeNum);
+                startActivityForResult(endGame, 0);
                 finish();
             }
         });
-
     }
 
     // disables the back button

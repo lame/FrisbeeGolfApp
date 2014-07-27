@@ -37,7 +37,6 @@
                     android:text="Previous Hole"
                     android:id="@+id/previous"
                     android:contentDescription="Start Game"
-                    android:layout_marginBottom="4dp"
                     android:background="@drawable/bg_card"
                     android:layout_marginTop="4dp"
                     android:layout_gravity="left"
@@ -50,7 +49,6 @@
                     android:text="Next Hole"
                     android:id="@+id/next"
                     android:contentDescription="Start Game"
-                    android:layout_marginBottom="4dp"
                     android:background="@drawable/bg_card"
                     android:layout_marginTop="4dp"
                     android:layout_marginLeft="4dp"
@@ -304,7 +302,7 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="0.37"
                 android:background="@drawable/bg_card"
                 android:layout_marginTop="4dp"
@@ -318,7 +316,49 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="Hole Layout :"
                     android:id="@+id/textView"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/holeMap"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/tbp1"
+                    android:scaleType="fitXY" />
+                <!-- <fragment
+                android:id="@+id/map"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                class="com.google.android.gms.maps.MapFragment"
+                />
+                -->
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal|bottom"
+                android:id="@+id/linearLayout2"
+                android:baselineAligned="false" >
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Summary"
+                    android:id="@+id/button"
+                    android:contentDescription="Start Game"
+                    android:background="@drawable/bg_card"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_gravity="center_horizontal" />
+
             </LinearLayout>
 
 
