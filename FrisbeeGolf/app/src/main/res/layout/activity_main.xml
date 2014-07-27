@@ -54,7 +54,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="DGolf v1.0"
             android:id="@+id/version"
-            android:layout_below="@+id/start"
+            android:layout_below="@+id/previous"
             android:gravity="center_horizontal"
             android:layout_marginBottom="10dp"
             android:singleLine="true" />

@@ -112,7 +112,7 @@
                             android:textAppearance="?android:attr/textAppearanceSmall"
                             android:text="Max 4 Players"
                             android:id="@+id/textView10"
-                            android:layout_below="@+id/start"
+                            android:layout_below="@+id/previous"
                             android:gravity="center_vertical"
                             android:singleLine="true"
                             android:phoneNumber="true"
@@ -124,11 +124,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPersonName"
-                        android:text="Name"
                         android:ems="10"
                         android:id="@+id/p1name"
                         android:layout_marginTop="4dp"
-                        android:layout_marginBottom="4dp" />
+                        android:layout_marginBottom="4dp"
+                        android:hint="Name" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -165,11 +165,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPersonName"
-                        android:text="Name"
                         android:ems="10"
                         android:id="@+id/p2name"
                         android:layout_marginTop="4dp"
-                        android:layout_marginBottom="4dp" />
+                        android:layout_marginBottom="4dp"
+                        android:hint="Name" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -206,11 +206,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPersonName"
-                        android:text="Name"
                         android:ems="10"
                         android:id="@+id/p3name"
                         android:layout_marginTop="4dp"
-                        android:layout_marginBottom="4dp" />
+                        android:layout_marginBottom="4dp"
+                        android:hint="Name" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -247,11 +247,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPersonName"
-                        android:text="Name"
                         android:ems="10"
                         android:id="@+id/p4name"
                         android:layout_marginTop="4dp"
-                        android:layout_marginBottom="4dp" />
+                        android:layout_marginBottom="4dp"
+                        android:hint="Name" />
 
                 </LinearLayout>
 

@@ -32,10 +32,10 @@
                 android:baselineAligned="false">
 
                 <Button
-                    android:layout_width="170dp"
+                    android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:text="Previous Hole"
-                    android:id="@+id/start"
+                    android:id="@+id/previous"
                     android:contentDescription="Start Game"
                     android:layout_marginBottom="4dp"
                     android:background="@drawable/bg_card"
@@ -45,10 +45,10 @@
                     android:layout_marginRight="4dp" />
 
                 <Button
-                    android:layout_width="170dp"
+                    android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:text="Next Hole"
-                    android:id="@+id/button"
+                    android:id="@+id/next"
                     android:contentDescription="Start Game"
                     android:layout_marginBottom="4dp"
                     android:background="@drawable/bg_card"
@@ -74,41 +74,46 @@
                     android:layout_marginTop="5dp"
                     android:gravity="center_horizontal" >
 
-                    <TextView
-                        android:layout_width="25dp"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Hole : "
-                        android:id="@+id/title_hole" />
-
-                    <TextView
-                        android:layout_width="58dp"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="0 "
-                        android:id="@+id/hole_Num" />
-
-                    <TextView
+                    <LinearLayout
+                        android:orientation="horizontal"
                         android:layout_width="wrap_content"
-                        android:layout_height="8dp"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text=" "
-                        android:id="@+id/textView17"
-                        android:singleLine="true" />
+                        android:layout_height="wrap_content">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Par : "
-                        android:id="@+id/title_par" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Hole : "
+                            android:id="@+id/title_hole" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="0"
-                        android:id="@+id/par_Num" />
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="0 "
+                            android:id="@+id/hole_Num" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Par : "
+                            android:id="@+id/title_par" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="0"
+                            android:id="@+id/par_Num" />
+                    </LinearLayout>
+
                 </TableRow>
 
                 <TableRow
@@ -124,14 +129,6 @@
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Player 1"
                         android:id="@+id/p1_Name" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="8dp"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text=" "
-                        android:id="@+id/space"
-                        android:singleLine="true" />
 
                     <Button
                         style="?android:attr/buttonStyleSmall"
@@ -154,7 +151,7 @@
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:text="+"
-                        android:id="@+id/p1add"
+                        android:id="@+id/p1plus"
                         android:layout_margin="8dp" />
                 </TableRow>
 
@@ -171,14 +168,6 @@
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="Player 2"
                         android:id="@+id/p2_Name" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="8dp"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text=" "
-                        android:id="@+id/textView13"
-                        android:singleLine="true" />
 
                     <Button
                         style="?android:attr/buttonStyleSmall"
@@ -219,14 +208,6 @@
                         android:text="Player 3"
                         android:id="@+id/p3_Name" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="8dp"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text=" "
-                        android:id="@+id/spacer"
-                        android:singleLine="true" />
-
                     <Button
                         style="?android:attr/buttonStyleSmall"
                         android:layout_width="32dp"
@@ -240,7 +221,7 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="0"
-                        android:id="@+id/textView8"
+                        android:id="@+id/p3_throw"
                         android:gravity="center_horizontal" />
 
                     <Button
@@ -266,14 +247,6 @@
                         android:text="Player 4"
                         android:id="@+id/p4_Name" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="8dp"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text=" "
-                        android:id="@+id/textView15"
-                        android:singleLine="true" />
-
                     <Button
                         style="?android:attr/buttonStyleSmall"
                         android:layout_width="32dp"
@@ -287,7 +260,7 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:text="0"
-                        android:id="@+id/textView10"
+                        android:id="@+id/p4_throw"
                         android:gravity="center_horizontal" />
 
                     <Button

@@ -85,7 +85,7 @@ public class Player{
                 System.out.printf("Hole %d Par is %d\n\n", j, par);
                 System.out.printf("Player %d Putts for hole %d: ",i, j );
                 putts = in.nextInt();
-                ll.set(i.playerPutts[j], (int) putts);
+                //ll.set(i.playerPutts[j], (int) putts);
 
                 System.out.printf("\n\n");
             }
@@ -94,7 +94,7 @@ public class Player{
 
             for(int i = 0; i < playerNum; ++i){
                 for(int k=0; k < holeCount; ++k){
-                    score += ll.get(i.playerPutts[k]);
+                   // score += ll.get(i.playerPutts[k]);
                 }
                 score = score - parSum;
                 System.out.printf("Player %d Score: %d",i, score);

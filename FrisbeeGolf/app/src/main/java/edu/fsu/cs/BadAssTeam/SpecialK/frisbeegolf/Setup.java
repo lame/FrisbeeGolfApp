@@ -12,10 +12,8 @@ import android.widget.Spinner;
 
 public class Setup extends Activity {
 
-    private EditText p1_Name;
-    private EditText p2_Name;
-    private EditText p3_Name;
-    private EditText p4_Name;
+    private EditText p1_Name, p2_Name, p3_Name, p4_Name;
+    private String player1, player2, player3, player4, selection;
     private Spinner spinner_View;
 
     @Override
@@ -30,14 +28,16 @@ public class Setup extends Activity {
         p2_Name = (EditText)findViewById(R.id.p2name);
         p3_Name = (EditText)findViewById(R.id.p3name);
         p4_Name = (EditText)findViewById(R.id.p4name);
-        final String player1 = p1_Name.getText().toString();
-        final String player2 = p2_Name.getText().toString();
-        final String player3 = p3_Name.getText().toString();
-        final String player4 = p4_Name.getText().toString();
-        final String selection = spinner_View.getSelectedItem().toString();
+        selection = spinner_View.getSelectedItem().toString();
         ((Button) findViewById(R.id.start)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View V) {
+                player1 = p1_Name.getText().toString();
+                player2 = p2_Name.getText().toString();
+                player3 = p3_Name.getText().toString();
+                player4 = p4_Name.getText().toString();
+                int hole = 1;
                 Intent newGame = new Intent(Setup.this, Game.class);
+                newGame.putExtra("hole", hole);
                 newGame.putExtra("course", selection);
                 newGame.putExtra("player1", player1);
                 newGame.putExtra("player2", player2);
