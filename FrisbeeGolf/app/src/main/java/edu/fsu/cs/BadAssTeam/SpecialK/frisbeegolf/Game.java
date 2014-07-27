@@ -29,13 +29,7 @@ public class Game extends Activity {
         setContentView(R.layout.course);
 
         // retrieving passed data from previous activity
-        Bundle newGame = getIntent().getExtras();
-        holeNum = newGame.getInt("hole");
-        course = newGame.getInt("course");
-        player1 = newGame.getString("player1");
-        player2 = newGame.getString("player2");
-        player3 = newGame.getString("player3");
-        player4 = newGame.getString("player4");
+        retrieveIntent();
 
         // instantiating TextViews
         p1 = (TextView) findViewById(R.id.p1_Name);
@@ -48,26 +42,10 @@ public class Game extends Activity {
         p4_throw = (TextView) findViewById(R.id.p4_throw);
         hole_Number = (TextView) findViewById(R.id.hole_Num);
 
+
         // updating text with input data
-        p1.setText(player1);
-        if("".equals(player2)){
-            TableRow player2 = (TableRow) findViewById(R.id.playerRow2);
-            player2.setVisibility(View.GONE);
-        } else {
-            p2.setText(player2);
-        }
-        if("".equals(player3)){
-            TableRow player3 = (TableRow) findViewById(R.id.playerRow3);
-            player3.setVisibility(View.GONE);
-        } else {
-            p3.setText(player3);
-        }
-        if("".equals(player4)){
-            TableRow player4 = (TableRow) findViewById(R.id.playerRow4);
-            player4.setVisibility(View.GONE);
-        } else {
-            p4.setText(player4);
-        }
+        updateTextView();
+
         hole_Num = Integer.toString(holeNum);
         hole_Number.setText(hole_Num);
 
@@ -190,4 +168,35 @@ public class Game extends Activity {
     public void onBackPressed() {
     }
 
+    public void retrieveIntent() {
+        Bundle newGame = getIntent().getExtras();
+        holeNum = newGame.getInt("hole");
+        course = newGame.getInt("course");
+        player1 = newGame.getString("player1");
+        player2 = newGame.getString("player2");
+        player3 = newGame.getString("player3");
+        player4 = newGame.getString("player4");
+    }
+
+    public void updateTextView() {
+        p1.setText(player1);
+        if("".equals(player2)){
+            TableRow player2 = (TableRow) findViewById(R.id.playerRow2);
+            player2.setVisibility(View.GONE);
+        } else {
+            p2.setText(player2);
+        }
+        if("".equals(player3)){
+            TableRow player3 = (TableRow) findViewById(R.id.playerRow3);
+            player3.setVisibility(View.GONE);
+        } else {
+            p3.setText(player3);
+        }
+        if("".equals(player4)){
+            TableRow player4 = (TableRow) findViewById(R.id.playerRow4);
+            player4.setVisibility(View.GONE);
+        } else {
+            p4.setText(player4);
+        }
+    }
 }
