@@ -127,9 +127,6 @@ public class Game extends Activity {
         }
         if(holeNum != DGolf.getHoles(course)) {
             nextAction();
-            String message = "There are " + DGolf.getHoles(course);
-            Toast.makeText(Game.this,
-                    message, Toast.LENGTH_LONG).show();
         } else {
             ((Button) findViewById(R.id.next)).setOnClickListener(new View.OnClickListener() {
                 public void onClick(View V) {
@@ -141,14 +138,18 @@ public class Game extends Activity {
 
         // update image
         if(course == 1)
-            map.setImageResource(mapArray[course-1][holeNum-1]);
+            map.setImageResource(mapArray[course - 1][holeNum - 1]);
         else if (course == 2)
-            map.setImageResource(mapArray[course-1][holeNum-1]);
+            map.setImageResource(mapArray[course - 1][holeNum - 1]);
 
         ((Button) findViewById(R.id.summary)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View V) {
                 Intent endGame = new Intent(Game.this, Summary.class);
-                endGame.putExtra("current", holeNum);
+                //endGame.putExtra("current", holeNum);
+                endGame.putExtra("player1", player1);
+                endGame.putExtra("player2", player2);
+                endGame.putExtra("player3", player3);
+                endGame.putExtra("player4", player4);
                 startActivityForResult(endGame, 0);
                 finish();
             }

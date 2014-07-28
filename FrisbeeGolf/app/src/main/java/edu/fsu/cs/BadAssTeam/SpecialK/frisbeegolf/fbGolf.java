@@ -76,10 +76,8 @@ public class fbGolf{
         int holes;
         if(courseNumber == 1) //Tom Brown Course
             holes = 18;
-        if(courseNumber == 2) //Jack McLean Course
-            holes = 24;
         else
-            holes = MAX_HOLES;
+            holes = MAX_HOLES; //Jack McLean Course
         return holes;
     }
 

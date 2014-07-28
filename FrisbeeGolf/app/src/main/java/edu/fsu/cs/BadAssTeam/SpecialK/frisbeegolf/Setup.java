@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class Setup extends Activity {
 
@@ -46,7 +47,6 @@ public class Setup extends Activity {
 
             }
         });
-        selection = spinner_View.getSelectedItem().toString();
 
         ((Button) findViewById(R.id.start)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View V) {
@@ -54,6 +54,7 @@ public class Setup extends Activity {
                 player2 = p2_Name.getText().toString();
                 player3 = p3_Name.getText().toString();
                 player4 = p4_Name.getText().toString();
+                selection = spinner_View.getSelectedItem().toString();
 
                 int hole = 1;
                 int courseNum = 0;
